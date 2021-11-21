@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
+    />
+    <title>WebTech</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Angular CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script defer src="script.js"></script>
+    <script defer src="projects/calc.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="projects/calc.css" />
+  </head>
+
+  <body>
+    <div id="scroll-outer-wrapper">
+      <div id="scroll-inner-wrapper"></div>
+    </div>
+
+    <div id="content">
+      <!-- Title & Sub-Title -->
+      <section id="intro">
+        <div class="inner">
+          <h1>Web Tech DA</h1>
+          <h2>Gandharv Sachdeva (19BCE0842)</h2>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <article class="project">
+          <div class="image-container" data-project="skills">
+            <picture>
+              <source srcset="images/calc.png" />
+              <img src="images/calc.png" alt="Projects" />
+            </picture>
+          </div>
+          <h2 class="title">ngCalc</h2>
+          <div class="description-container">
+            <div class="description">
+              <div class="description__inner">
+                <div
+                  class="calculator"
+                  ng-app="calculator"
+                  ng-controller="calculatorCtrl as ctrl"
+                >
+                  <div class="display">{{ ctrl.value }}</div>
+                  <div class="controls">
+                    <div class="row">
+                      <button ng-click="ctrl.clear()">C</button>
+                      <button ng-click="ctrl.negate()">+/-</button>
+                      <button ng-click="ctrl.op('/')">/</button>
+                      <button ng-click="ctrl.op('*')">*</button>
+                    </div>
+                    <div class="row">
+                      <button ng-click="ctrl.num('7')">7</button>
+                      <button ng-click="ctrl.num('8')">8</button>
+                      <button ng-click="ctrl.num('9')">9</button>
+                      <button ng-click="ctrl.op('-')">-</button>
+                    </div>
+                    <div class="row">
+                      <button ng-click="ctrl.num('4')">4</button>
+                      <button ng-click="ctrl.num('5')">5</button>
+                      <button ng-click="ctrl.num('6')">6</button>
+                      <button ng-click="ctrl.op('+')">+</button>
+                    </div>
+                    <div class="row double">
+                      <button class="tall right" ng-click="ctrl.compute()">
+                        =
+                      </button>
+                      <div>
+                        <button ng-click="ctrl.num('1')">1</button>
+                        <button ng-click="ctrl.num('2')">2</button>
+                        <button ng-click="ctrl.num('3')">3</button>
+                      </div>
+                      <div>
+                        <button class="wide" ng-click="ctrl.num('0')">0</button>
+                        <button ng-click="ctrl.num('.')">.</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section id="outro">
+        <h2>More projects coming soon!!!<br /></h2>
+      </section>
+    </div>
+
+    <!-- Head and Face -->
+    <div id="head" data-emotional-state="bored">
+      <div id="scalp">
+        <div id="scalp-bottom"></div>
+      </div>
+      <div id="face">
+        <div id="eyes">
+          <div id="eye-left" class="eye">
+            <div class="eyeball"></div>
+            <div class="pupil">
+              <div class="pupil__inner"></div>
+            </div>
+            <div class="eyelid eyelid--top"></div>
+            <div class="eyelid eyelid--bottom"></div>
+            <div class="closed-eyelids"></div>
+            <div class="eyebrow">
+              <div class="eyebrow__inner"></div>
+            </div>
+          </div>
+          <div id="eye-right" class="eye">
+            <div class="eyeball"></div>
+            <div class="pupil">
+              <div class="pupil__inner"></div>
+            </div>
+            <div class="eyelid eyelid--top"></div>
+            <div class="eyelid eyelid--bottom"></div>
+            <div class="closed-eyelids"></div>
+            <div class="eyebrow">
+              <div class="eyebrow__inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg>
+      <defs>
+        <filter id="turbulence-filter">
+          <feTurbulence
+            id="turbulence-filter__turbulence"
+            type="turbulence"
+            baseFrequency="0.03"
+            numOctaves="1"
+            result="turbulence"
+          >
+            <animate
+              attributeName="baseFrequency"
+              from="0.03"
+              to="0.04"
+              dur="0.5s"
+              calcMode="discrete"
+              values="0.03;0.01;0.04"
+              keyTimes="0;0.33333;0.66666"
+              fill="freeze"
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          <feDisplacementMap
+            id="turbulence-filter__displacement"
+            in2="turbulence"
+            in="SourceGraphic"
+            scale="4"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+  </body>
+</html>
